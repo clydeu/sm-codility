@@ -22,24 +22,13 @@ namespace codility_test
             if (A.Length <= 2)
                 return yMax;
 
-            // initialize coordinates with 0
-            var coordinates = new int[A.Length, yMax];
-
-            for (var x = 0; x < A.Length; x++)
-            {
-                for (var y = 0; y < A[x]; y++)
-                {
-                    coordinates[x, y] = 1;
-                }
-            }
-
             bool brushToggle = false;
             int brushCount = 0;
-            for (var y = 0; y < yMax; y++)
+            for (var y = 1; y <= yMax; y++)
             {
                 for (var x = 0; x < A.Length; x++)
                 {
-                    if (coordinates[x, y] == 1)
+                    if (A[x] >= y)
                         brushToggle = true;
                     else if (brushToggle)
                     {
